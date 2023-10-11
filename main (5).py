@@ -1,96 +1,25 @@
-class BankAccount:
+⁷class student:
+  
+  def __init__(self,name,roll_number,cgpa):
+    self.name=name
+    self.roll_number=roll_number
+    self.cgpa=cgpa
 
-  def __init__(self, account_number, date_of_opening, balance, customer_name):
+def sort_students (student_list):
+# sort the list of students in descending order of the cgpa     
+    
+    sorted_students=sorted(student_list, key=lambda student:  student.cgpa ,reverse=True)
 
-    self.account_number = account_number
+    return sorted_students
 
-    self.date_of_opening = date_of_opening
-
-    self.balance = balance
-
-    self.customer_name = customer_name
-
-  def deposit(self, amount):
-
-    self.balance += amount
-
-    print(f"${amount} has been deposited in your account.")
-
-  def withdraw(self, amount):
-
-    if amount > self.balance:
-
-      print("Insufficient balance.")
-
-    else:
-
-      self.balance -= amount
-
-      print(f"${amount} has been withdrawn from your account.")
-
-  def check_balance(self):
-
-    print(f"Current balance is ${self.balance}.")
-
-  def print_customer_details(self):
-
-    print("Name:", self.customer_name)
-
-    print("Account Number:", self.account_number)
-
-    print("Date of opening:", self.date_of_opening)
-
-    print(f"Balance: ${self.balance}\n")
-
-
-# Input customer details
-
-ac_no_1 = BankAccount(2345, "01-01-2011", 1000, "Toninho Takeo")
-
-ac_no_2 = BankAccount(1234, "11-03-2011", 2000, "Astrid Rugile")
-
-ac_no_3 = BankAccount(2312, "12-01-2009", 3000, "Orli Kerenza")
-
-ac_no_4 = BankAccount(1395, "01-01-2011", 3000, "Luciana Chika")
-
-ac_no_5 = BankAccount(6345, "01-05-2011", 4000, "Toninho Takeo")
-
-print("Customer Details:")
-
-ac_no_1.print_customer_details()
-
-ac_no_2.print_customer_details()
-
-ac_no_3.print_customer_details()
-
-ac_no_4.print_customer_details()
-
-ac_no_5.print_customer_details()
-
-print("=============================")
-
-ac_no_4.print_customer_details()
-
-# Current balance is $3000.
-
-# $1000 has been deposited in your account.
-
-ac_no_4.deposit(1000)
-
-ac_no_4.check_balance()
-
-# Your current balance $4000.
-
-# You want to withdraw $5000
-
-ac_no_4.withdraw(5000)
-
-# Output:
-
-# Insufficient balance.
-
-#The customer withdraw $3400.
-
-ac_no_4.withdraw(3400)
-
-ac_no_4.check_balance()
+# example usage
+students=[ 
+  student ("Vibi","3456",8.7),
+  student("Jaya","3457",8.6),
+  student("nandhu","3458",8.9), 
+  student("renju","3459",8.5),
+  student ("ashi","3460",8.8),]
+sorted_students=sort_students(students)
+#print the sorted list of students
+for student in sorted_students:
+  print("Name:{},Roll number:{},CGPA:{}".format(student.name,student.roll_number,student.cgpa))
